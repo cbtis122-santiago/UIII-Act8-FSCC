@@ -1,0 +1,47 @@
+{% extends 'hotel/base.html' %}
+
+{% block title %}Lista de Reservas{% endblock %}
+
+{% block content %}
+    <h2>Reservas</h2>
+    <a href="{% url 'reserva_add' %}" class="btn btn-primary">Agregar Reserva</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Huésped</th>
+                <th>Fecha de Entrada</th>
+                <th>Fecha de Salida</th>
+                <th>Adultos</th>
+                <th>Niños</th>
+                <th>Estado</th>
+                <th>Total</th>
+                <th>Fecha de Reserva</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reserva in reservas %}
+                <tr>
+                    <td>{{ reserva.id_reserva }}</td>
+                    <td>{{ reserva.id_huesped }}</td>
+                    <td>{{ reserva.fecha_entrada }}</td>
+                    <td>{{ reserva.fecha_salida }}</td>
+                    <td>{{ reserva.numero_adultos }}</td>
+                    <td>{{ reserva.numero_ninos }}</td>
+                    <td>{{ reserva.estado_reserva }}</td>
+                    <td>{{ reserva.total_reserva }}</td>
+                    <td>{{ reserva.fecha_reserva }}</td>
+                    <td class="action-buttons">
+                        <a href="{% url 'reserva_edit' reserva.pk %}" class="btn btn-edit">Editar</a>
+                        <a href="{% url 'reserva_delete' reserva.pk %}" class="btn btn-delete">Eliminar</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="10">No hay reservas registradas.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

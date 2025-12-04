@@ -1,0 +1,51 @@
+{% extends 'hotel/base.html' %}
+
+{% block title %}Lista de Detalles de Reserva{% endblock %}
+
+{% block content %}
+    <h2>Detalles de Reserva</h2>
+    <a href="{% url 'detalle_reserva_add' %}" class="btn btn-primary">Agregar Detalle</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Reserva</th>
+                <th>Habitación</th>
+                <th>Precio Noche Reservado</th>
+                <th>Cantidad de Noches</th>
+                <th>Subtotal</th>
+                <th>Servicios Adicionales</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for detalle in detalles %}
+                <tr>
+                    <td>{{ detalle.id_detalle_reserva }}</td>
+                    <td>{{ detalle.id_reserva }}</td>
+                    <td>{{ detalle.id_habitacion }}</td>
+                    <td>{{ detalle.precio_noche_reservado }}</td>
+                    <td>{{ detalle.cantidad_noches }}</td>
+                    <td>{{ detalle.subtotal }}</td>
+                    <td>
+                        <ul>
+                            {% for servicio in detalle.servicios_adicionales.all %}
+                                <li>{{ servicio.nombre_servicio }}</li>
+                            {% empty %}
+                                <li>Sin servicios adicionales</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td class="action-buttons">
+                        <a href="{% url 'detalle_reserva_edit' detalle.pk %}" class="btn btn-edit">Editar</a>
+                        <a href="{% url 'detalle_reserva_delete' detalle.pk %}" class="btn btn-delete">Eliminar</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="8">No hay detalles de reserva registrados.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

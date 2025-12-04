@@ -1,0 +1,43 @@
+{% extends 'hotel/base.html' %}
+
+{% block title %}Lista de Servicios Adicionales{% endblock %}
+
+{% block content %}
+    <h2>Servicios Adicionales</h2>
+    <a href="{% url 'servicio_adicional_add' %}" class="btn btn-primary">Agregar Servicio</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Costo Unitario</th>
+                <th>Disponible</th>
+                <th>Categoría</th>
+                <th>Duración</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for servicio in servicios %}
+                <tr>
+                    <td>{{ servicio.id_servicio }}</td>
+                    <td>{{ servicio.nombre_servicio }}</td>
+                    <td>{{ servicio.descripcion }}</td>
+                    <td>{{ servicio.costo_unitario }}</td>
+                    <td>{{ servicio.disponible }}</td>
+                    <td>{{ servicio.categoria }}</td>
+                    <td>{{ servicio.duracion }}</td>
+                    <td class="action-buttons">
+                        <a href="{% url 'servicio_adicional_edit' servicio.pk %}" class="btn btn-edit">Editar</a>
+                        <a href="{% url 'servicio_adicional_delete' servicio.pk %}" class="btn btn-delete">Eliminar</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="8">No hay servicios adicionales registrados.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'hotel/base.html' %}
+
+{% block title %}Confirmar Eliminación{% endblock %}
+
+{% block content %}
+    <div class="delete-confirm">
+        <h2>¿Estás seguro?</h2>
+        <p>Estás a punto de eliminar al huésped "{{ object }}". Esta acción no se puede deshacer.</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-actions">
+                <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+                <a href="{% url 'huesped_list' %}" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

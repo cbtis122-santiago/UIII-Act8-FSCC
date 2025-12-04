@@ -1,0 +1,49 @@
+{% extends 'hotel/base.html' %}
+
+{% block title %}Lista de Huéspedes{% endblock %}
+
+{% block content %}
+    <h2>Huéspedes</h2>
+    <a href="{% url 'huesped_add' %}" class="btn btn-primary">Agregar Huésped</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Nacionalidad</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+                <th>DNI/Pasaporte</th>
+                <th>Fecha de Registro</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for huesped in huespedes %}
+                <tr>
+                    <td>{{ huesped.id_huesped }}</td>
+                    <td>{{ huesped.nombre }}</td>
+                    <td>{{ huesped.apellido }}</td>
+                    <td>{{ huesped.fecha_nacimiento }}</td>
+                    <td>{{ huesped.nacionalidad }}</td>
+                    <td>{{ huesped.direccion }}</td>
+                    <td>{{ huesped.telefono }}</td>
+                    <td>{{ huesped.email }}</td>
+                    <td>{{ huesped.dni_pasaporte }}</td>
+                    <td>{{ huesped.fecha_registro }}</td>
+                    <td class="action-buttons">
+                        <a href="{% url 'huesped_edit' huesped.pk %}" class="btn btn-edit">Editar</a>
+                        <a href="{% url 'huesped_delete' huesped.pk %}" class="btn btn-delete">Eliminar</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="11">No hay huéspedes registrados.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'hotel/base.html' %}
+
+{% block title %}{% if object %}Editar{% else %}Agregar{% endif %} Empleado{% endblock %}
+
+{% block content %}
+    <h2>{% if object %}Editar{% else %}Agregar{% endif %} Empleado</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{% url 'empleado_list' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+{% endblock %}

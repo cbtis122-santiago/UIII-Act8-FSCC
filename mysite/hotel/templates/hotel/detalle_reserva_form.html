@@ -1,0 +1,70 @@
+{% extends 'hotel/base.html' %}
+
+{% block title %}{% if object %}Editar{% else %}Agregar{% endif %} Detalle de Reserva{% endblock %}
+
+{% block extra_css %}
+<style>
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+    }
+
+    .checkbox-container {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 15px;
+        max-height: 200px;
+        overflow-y: auto;
+        background-color: #f9f9f9;
+    }
+
+    .checkbox-item {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+        margin-right: 10px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+    <h2>{% if object %}Editar{% else %}Agregar{% endif %} Detalle de Reserva</h2>
+    <form method="post">
+        {% csrf_token %}
+        
+        {% for field in form %}
+            <div class="form-group field-{{ field.name }}">
+                {{ field.label_tag }}
+                
+                {% if field.name == 'servicios_adicionales' %}
+                    <div class="checkbox-container">
+                        {% for choice in field %}
+                            <label class="checkbox-item" for="{{ choice.id_for_label }}">
+                                {{ choice.tag }} 
+                                {{ choice.choice_label }}
+                            </label>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ field }}
+                {% endif %}
+                
+                {% if field.errors %}
+                    <div class="alert alert-danger mt-1">{{ field.errors }}</div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{% url 'detalle_reserva_list' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+{% endblock %}

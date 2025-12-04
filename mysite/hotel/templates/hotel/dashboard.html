@@ -1,0 +1,30 @@
+{% extends 'hotel/base.html' %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard-header" style="background-image: url('{% static 'hotel/images/hero-background.jpg' %}');">
+    <h1>Bienvenido al Sistema de Gestión Hotelera</h1>
+    <p>Una solución completa para administrar su hotel de manera eficiente.</p>
+</div>
+
+<div class="dashboard-cards">
+    <div class="card">
+        <h3>Total de Huéspedes</h3>
+        <p>{{ total_huespedes }}</p>
+    </div>
+    <div class="card">
+        <h3>Total de Habitaciones</h3>
+        <p>{{ total_habitaciones }}</p>
+    </div>
+    <div class="card">
+        <h3>Habitaciones Disponibles</h3>
+        <p>{{ habitaciones_disponibles }}</p>
+    </div>
+    <div class="card">
+        <h3>Total de Reservas</h3>
+        <p>{{ total_reservas }}</p>
+    </div>
+</div>
+{% endblock %}

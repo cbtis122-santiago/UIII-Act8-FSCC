@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Hotel Management{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'hotel/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="{% url 'dashboard' %}">Hotel Premium</a>
+        </div>
+        <ul class="navbar-nav">
+            <li><a href="{% url 'dashboard' %}">Inicio</a></li>
+            <li><a href="{% url 'huesped_list' %}">Huéspedes</a></li>
+            <li><a href="{% url 'habitacion_list' %}">Habitaciones</a></li>
+            <li><a href="{% url 'reserva_list' %}">Reservas</a></li>
+            <li><a href="{% url 'detalle_reserva_list' %}">Detalles</a></li>
+            <li><a href="{% url 'empleado_list' %}">Empleados</a></li>
+            <li><a href="{% url 'servicio_adicional_list' %}">Servicios</a></li>
+            <li><a href="{% url 'factura_list' %}">Facturas</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
