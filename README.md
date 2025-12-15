@@ -1,4 +1,7 @@
 # Django
+![IMG_4598](https://github.com/user-attachments/assets/58493f6c-ca28-4ba4-904f-41a46e2c6578)
+
+
 <img width="1366" height="580" alt="image" src="https://github.com/user-attachments/assets/a0b25013-c16a-445f-85b3-af6b0ce3e2cf" />
 <img width="1366" height="528" alt="image" src="https://github.com/user-attachments/assets/f5078f37-ff1b-44da-9e2f-57d5809b4ebb" />
 <img width="1366" height="637" alt="image" src="https://github.com/user-attachments/assets/300f4b13-f0f6-4ffd-aecb-b7e1744c3373" />
