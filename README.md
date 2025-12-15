@@ -1,6 +1,6 @@
 # Django
-![IMG_4598](https://github.com/user-attachments/assets/58493f6c-ca28-4ba4-904f-41a46e2c6578)
-
+<img width="1366" height="638" alt="image" src="https://github.com/user-attachments/assets/51a9a1b4-4abc-4c46-83c2-774fd9ebc91a" />
+<img width="1366" height="625" alt="image" src="https://github.com/user-attachments/assets/158c1548-84a1-4b83-a365-e74aea7a23d7" />
 
 <img width="1366" height="580" alt="image" src="https://github.com/user-attachments/assets/a0b25013-c16a-445f-85b3-af6b0ce3e2cf" />
 <img width="1366" height="528" alt="image" src="https://github.com/user-attachments/assets/f5078f37-ff1b-44da-9e2f-57d5809b4ebb" />
